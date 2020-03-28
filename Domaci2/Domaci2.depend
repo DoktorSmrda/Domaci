@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1585428253 source:d:\sve za skolu\github\domaci\domaci2\main.cpp
+	<iostream>
+	<cstdlib>
+	<time.h>
+
