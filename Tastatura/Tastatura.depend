@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1586943931 source:d:\sve za skolu\github\domaci\tastatura\dinstring.cpp
+	"dinstring.hpp"
+
+1586942848 d:\sve za skolu\github\domaci\tastatura\dinstring.hpp
+	<iostream>
+
+1586949613 source:d:\sve za skolu\github\domaci\tastatura\main.cpp
+	<iostream>
+	"dinstring.hpp"
+
