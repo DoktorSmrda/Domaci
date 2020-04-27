@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include "dinstring.hpp"
 using namespace std;
 
 class Kamera
@@ -79,17 +79,17 @@ public:
 class Telefon
 {
 protected:
-    string broj;
+    DinString broj;
 public:
     Telefon()
     {
         broj = "06412345678";
     }
-    Telefon(string b)
+    Telefon(DinString b)
     {
         broj = b;
     }
-    bool pozovi(string b)
+    bool pozovi(DinString b)
     {
         if(b!=broj)
         {
@@ -107,7 +107,7 @@ protected:
     Kamera k;
 public:
     TelefonGen2():Telefon(),k(){}
-    TelefonGen2(string b, int mP, int fS, int pC) : Telefon(b), k(mP, fS, pC){}
+    TelefonGen2(DinString b, int mP, int fS, int pC) : Telefon(b), k(mP, fS, pC){}
     bool slikajSliku()
     {
         return k.slikaj();
@@ -119,7 +119,7 @@ private:
     VideoKamera vk;
 public:
     TelefonGen3():TelefonGen2(),vk(){}
-    TelefonGen3(string b, int mP, int fS, int pC, int vC):TelefonGen2(b, mP, fS, pC),vk(mP,fS,pC,vC){}
+    TelefonGen3(DinString b, int mP, int fS, int pC, int vC):TelefonGen2(b, mP, fS, pC),vk(mP,fS,pC,vC){}
     bool snimiVideo(int sekunde)
     {
         return vk.snimaj(sekunde);
@@ -127,6 +127,11 @@ public:
 };
 int main()
 {
-
+    Kamera k;
+    VideoKamera VK;
+    Telefon t;
+    TelefonGen2 tg2;
+    TelefonGen3 tg3;
+    
     return 0;
 }
