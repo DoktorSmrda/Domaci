@@ -1,0 +1,114 @@
+﻿  dinstring.cpp
+  main.cpp
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\list.hpp(20,17): error C3861: 'null': identifier not found
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\list.hpp(46): message : see reference to class template instantiation 'List<T>' being compiled
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\list.hpp(21,16): error C3861: 'null': identifier not found
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\list.hpp(53,18): error C3861: 'null': identifier not found
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\list.hpp(54,22): error C3861: 'null': identifier not found
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\list.hpp(55,18): error C3861: 'null': identifier not found
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\list.hpp(110,24): error C3861: 'null': identifier not found
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\list.hpp(117,26): error C3861: 'null': identifier not found
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(124,10): error C2065: 'Tenk': undeclared identifier
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(124,5): error C2923: 'List': 'Tenk' is not a valid template type argument for parameter 'T'
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(127,5): error C2512: 'List': no appropriate default constructor available
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\list.hpp(6,1): message : see declaration of 'List'
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(138,9): error C2065: 'Tenk': undeclared identifier
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(138,15): error C2065: 'tenkZaKupovinu': undeclared identifier
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(142,13): error C2065: 'tenkZaKupovinu': undeclared identifier
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(142,1): error C2061: syntax error: identifier 'Laki'
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(145,13): error C2065: 'tenkZaKupovinu': undeclared identifier
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(145,1): error C2061: syntax error: identifier 'Srednji'
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(148,13): error C2065: 'tenkZaKupovinu': undeclared identifier
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(148,1): error C2061: syntax error: identifier 'Teski'
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(151,13): error C2065: 'tenkZaKupovinu': undeclared identifier
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(151,1): error C2061: syntax error: identifier 'Artiljerija'
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(154,13): error C2065: 'tenkZaKupovinu': undeclared identifier
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(154,1): error C2061: syntax error: identifier 'Lovac'
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(159,51): error C2065: 'tenkZaKupovinu': undeclared identifier
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(162,24): error C2065: 'tenkZaKupovinu': undeclared identifier
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(163,1): error C2678: binary '[': no operator found which takes a left-hand operand of type 'List' (or there is no acceptable conversion)
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\list.hpp(37,8): message : could be 'T &List<T>::operator [](int)'
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(163,1): message : while trying to match the argument list '(List, int)'
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(174,1): error C2678: binary '[': no operator found which takes a left-hand operand of type 'List' (or there is no acceptable conversion)
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\list.hpp(37,8): message : could be 'T &List<T>::operator [](int)'
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(174,1): message : while trying to match the argument list '(List, int)'
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(178,1): error C2678: binary '[': no operator found which takes a left-hand operand of type 'List' (or there is no acceptable conversion)
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\list.hpp(37,8): message : could be 'T &List<T>::operator [](int)'
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(178,1): message : while trying to match the argument list '(List, int)'
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(179,1): error C2662: 'void List<T>::RemoveAt(int)': cannot convert 'this' pointer from 'List' to 'List<T> &'
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(179,1): message : Reason: cannot convert from 'List' to 'List<T>'
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(179,13): message : Conversion requires a second user-defined-conversion operator or constructor
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\list.hpp(35,10): message : see declaration of 'List<T>::RemoveAt'
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(207,1): error C2678: binary '[': no operator found which takes a left-hand operand of type 'List' (or there is no acceptable conversion)
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\list.hpp(37,8): message : could be 'T &List<T>::operator [](int)'
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(207,1): message : while trying to match the argument list '(List, int)'
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(217,1): error C2678: binary '[': no operator found which takes a left-hand operand of type 'List' (or there is no acceptable conversion)
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\list.hpp(37,8): message : could be 'T &List<T>::operator [](int)'
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(217,1): message : while trying to match the argument list '(List, int)'
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(222,1): error C2678: binary '[': no operator found which takes a left-hand operand of type 'List' (or there is no acceptable conversion)
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\list.hpp(37,8): message : could be 'T &List<T>::operator [](int)'
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(222,1): message : while trying to match the argument list '(List, int)'
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(225,1): error C2678: binary '[': no operator found which takes a left-hand operand of type 'List' (or there is no acceptable conversion)
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\list.hpp(37,8): message : could be 'T &List<T>::operator [](int)'
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(225,1): message : while trying to match the argument list '(List, int)'
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(266,1): error C3867: 'Servisiranje::getMunicija': non-standard syntax; use '&' to create a pointer to member
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(266,1): error C2109: subscript requires array or pointer type
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(268,1): error C2678: binary '[': no operator found which takes a left-hand operand of type 'List' (or there is no acceptable conversion)
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\list.hpp(37,8): message : could be 'T &List<T>::operator [](int)'
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(268,1): message : while trying to match the argument list '(List, int)'
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(279,1): error C3867: 'Servisiranje::getPotrosnaRoba': non-standard syntax; use '&' to create a pointer to member
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(279,1): error C2109: subscript requires array or pointer type
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(281,1): error C2678: binary '[': no operator found which takes a left-hand operand of type 'List' (or there is no acceptable conversion)
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\list.hpp(37,8): message : could be 'T &List<T>::operator [](int)'
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(281,1): message : while trying to match the argument list '(List, int)'
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(312,1): error C2504: 'Tenk': base class undefined
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(318,1): error C2504: 'Tenk': base class undefined
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(323,1): error C2504: 'Tenk': base class undefined
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(328,1): error C2504: 'Tenk': base class undefined
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(333,1): error C2504: 'Tenk': base class undefined
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(345,12): error C3646: 'top': unknown override specifier
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(345,12): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(346,18): error C3646: 'kupola': unknown override specifier
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(346,18): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(347,16): error C3646: 'motor': unknown override specifier
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(347,16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(348,16): error C3646: 'radio': unknown override specifier
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(348,16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(349,20): error C3646: 'vesanje': unknown override specifier
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(349,20): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(350,18): error C3646: 'posada': unknown override specifier
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(350,18): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(354,41): error C2614: 'Tenk': illegal member initialization: 'top' is not a base or member
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(354,58): error C2614: 'Tenk': illegal member initialization: 'kupola' is not a base or member
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(354,77): error C2614: 'Tenk': illegal member initialization: 'motor' is not a base or member
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(354,95): error C2614: 'Tenk': illegal member initialization: 'radio' is not a base or member
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(354,113): error C2614: 'Tenk': illegal member initialization: 'vesanje' is not a base or member
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(354,134): error C2614: 'Tenk': illegal member initialization: 'posada' is not a base or member
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(362,26): error C2065: 'posada': undeclared identifier
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(364,65): error C2614: 'Tenk': illegal member initialization: 'top' is not a base or member
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(364,87): error C2614: 'Tenk': illegal member initialization: 'kupola' is not a base or member
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(364,111): error C2614: 'Tenk': illegal member initialization: 'motor' is not a base or member
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(364,134): error C2614: 'Tenk': illegal member initialization: 'radio' is not a base or member
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(364,157): error C2614: 'Tenk': illegal member initialization: 'vesanje' is not a base or member
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(364,183): error C2614: 'Tenk': illegal member initialization: 'posada' is not a base or member
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(372,26): error C2065: 'posada': undeclared identifier
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(372,48): error C2065: 'posada': undeclared identifier
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(383,9): error C2065: 'posada': undeclared identifier
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(387,26): error C2065: 'posada': undeclared identifier
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(387,48): error C2065: 'posada': undeclared identifier
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(411,1): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(412,1): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(413,16): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(513,15): error C2065: 'tip': undeclared identifier
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(572,1): error C2059: syntax error: ';'
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(573,1): error C2059: syntax error: ';'
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(574,1): error C2059: syntax error: ';'
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(575,1): error C2059: syntax error: ';'
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(576,1): error C2059: syntax error: ';'
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(591,1): error C2059: syntax error: ';'
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(592,1): error C2059: syntax error: ';'
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(593,1): error C2059: syntax error: ';'
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(594,1): error C2059: syntax error: ';'
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(595,1): error C2059: syntax error: ';'
+D:\Sve za skolu\GitHub\Domaci\Individualni\Individualni\main.cpp(699,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Generating Code...

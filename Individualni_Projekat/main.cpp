@@ -1,24 +1,131 @@
 #include <iostream>
+#include "dinstring.hpp"
+#include "list.hpp"
+#include <time.h>
 using namespace std;
+
+enum tipTenka { LAKI = 1, SREDNJI, TESKI, ARTILJERIJA, LOVAC };
+enum stanjeTenka { SPREMANZABORBU = 1, POTREBNAPOPRAVKA };
 
 class Osobine
 {
 protected:
-    int nivo;
-    int tezina; /// kg
+    int tezina;
+    int level = 0;
 public:
-    Osobine(int n, int t)
+    Osobine()
     {
-        nivo = n;
-        tezina = t;
+        tezina = 5000;
     }
-    bool SetTezina()
+    Osobine(int t)
     {
-        return true;
+        tezina = t;
     }
 };
 
-enum tipTenka {LAKI = 1, SREDNJI, TESKI, ARTILJERIJA, LOVAC};
+class Servisiranje
+{
+private:
+    const int cenaPotrosneRobe[7] = { 20000, 20000, 20000, 20000, 3000, 3000, 3000 };
+    const int cenaMunicije[3] = { 14, 800, 14};
+    const DinString PotrosnaRoba[7] =
+    {
+        "Veliki komplet za opravku",
+        "Veiliki komplet prve pomoci",
+        "Dodatna borbena sledovanja",
+        "Automatski protivpozarni aparat",
+        "Rucni protivpozarni aparat",
+        "Mali komplet prve pomoci",
+        "Mali alat za popravke"
+    };
+    const DinString Municija[3]
+    {
+        "45mm P",
+        "45mm PP",
+        "45mm FG"
+    };
+    int* potrosnaRoba;
+    int* municija;
+public:
+    Servisiranje()
+    {
+        potrosnaRoba = (int*) calloc(7, sizeof(int));
+        municija = (int*) calloc(3, sizeof(int));
+    }
+    bool kupiPotrosnuRobu(int index, int kolicina)
+    {
+        if (potrosnaRoba[index] + kolicina <= 10)
+        {
+            potrosnaRoba[index] += kolicina;
+            return true;
+        }
+        return false;
+    }
+    bool kupiMuniciju(int index, int kolicina)
+    {
+        if (municija[0] + municija[1] + municija[2] + kolicina <= 200)
+        {
+            municija[index] += kolicina;
+            return true;
+        }
+        return false;
+    }
+    int getCenaMunicije(int kolicna, int index)
+    {
+        return cenaMunicije[index] * kolicna;
+    }
+    int getCenaPotrosneRobe(int kolicina, int index)
+    {
+        return cenaPotrosneRobe[index] * kolicina;
+    }
+    int getPotrosnaRoba(int index)
+    {
+        return potrosnaRoba[index];
+    }
+    int getMunicija(int index)
+    {
+        return municija[index];
+    }
+    void potrosiMuniciju(int kolicina, int index)
+    {
+        municija[index] -= kolicina;
+    }
+    void potrosiPotrosnuRobu(int kolicina, int index)
+    {
+        potrosnaRoba[index] -= kolicina;
+    }
+    void getInfo()
+    {
+        cout << "Potornsa roba: " << endl;
+        cout << "Veliki komplet za opravku: " << potrosnaRoba[0] << endl;
+        cout << "Veiliki komplet prve pomoci: " << potrosnaRoba[1] << endl;
+        cout << "Dodatna borbena sledovanja: " << potrosnaRoba[2] << endl;
+        cout << "Automatski protivpozarni aparat: " << potrosnaRoba[3] << endl;
+        cout << "Rucni protivpozarni aparat: " << potrosnaRoba[4] << endl;
+        cout << "Mali komplet prve pomoci: " << potrosnaRoba[5] << endl;
+        cout << "Mali alat za popravke: " << potrosnaRoba[6] << endl;
+        cout << "Municija: " << endl;
+        cout << "45mm P: " << municija[0] << endl;
+        cout << "45mm PP: " << municija[1] << endl;
+        cout << "45mm FG: " << municija[2] << endl;
+    }
+    int getBrojPotrosneRobe()
+    {
+        int temp = 0;
+        for (int i = 0; i < 6; i++)
+        {
+            if (potrosnaRoba[i] > 0)
+            {
+                temp++;
+            }
+        }
+        return temp;
+    }
+    int getBrojMunicije()
+    {
+        return municija[0] + municija[1] + municija[2];
+    }
+};
 
 class Vesanje : public Osobine
 {
@@ -26,7 +133,12 @@ private:
     int nosivost;
     int brzinaOkretanja;
 public:
-    Vesanje(int lvl, tipTenka tip, int t)
+    Vesanje() : Osobine(t)
+    {
+        nosivost = 1;
+        brzinaOkretanja = 1;
+    }
+    void unaprediVesanje()
     {
 
     }
@@ -38,7 +150,33 @@ private:
     int snagaMotora;
     int sansaZaPozar;
 public:
-    Motor(int lvl, tipTenka tip, int t)
+    Motor(tipTenka tip, int t) : Osobine(t)
+    {
+        switch(tip)
+        {
+        case LAKI:
+            snagaMotora = 12;
+            sansaZaPozar = 20;
+            break;
+        case SREDNJI:
+            snagaMotora = 30;
+            sansaZaPozar = 20;
+            break;
+        case TESKI:
+            snagaMotora = 50;
+            sansaZaPozar = 20;
+            break;
+        case ARTILJERIJA:
+            snagaMotora = 70;
+            sansaZaPozar = 20;
+            break;
+        case LOVAC:
+            snagaMotora = 40;
+            sansaZaPozar = 20;
+            break;
+        }
+    }
+    void unaprediMotor()
     {
 
     }
@@ -49,7 +187,28 @@ class Radio : public Osobine
 private:
     int dometSignala;
 public:
-    Radio(int lvl, tipTenka tip, int t) : Osobine(lvl, t)
+    Radio(tipTenka tip, int t) : Osobine(t)
+    {
+        switch(tip)
+        {
+        case LAKI:
+            dometSignala = 650;
+            break;
+        case SREDNJI:
+            dometSignala = 700;
+            break;
+        case TESKI:
+            dometSignala = 800;
+            break;
+        case ARTILJERIJA:
+            dometSignala = 1000;
+            break;
+        case LOVAC:
+            dometSignala = 800;
+            break;
+        }
+    }
+    void unaprediRadio()
     {
 
     }
@@ -62,66 +221,72 @@ private:
     int brzinaOkretanja; /// stepeni/sekundi
     int vidokrug; /// metara
 public:
-    Kupola(int lvl, tipTenka tip, int t) : Osobine(lvl, t)
+    Kupola(tipTenka tip, int t) : Osobine(t)
     {
-        switch(tip)
+        stats(tip);
+    }
+    void stats(tipTenka tip)
+    {
+        switch (tip)
         {
-        case 1:
-            brzinaOkretanja = 60
-            vidokrug = 220
+        case LAKI:
+            brzinaOkretanja = 60;
+            vidokrug = 220;
             break;
-        case 2:
-            brzinaOkretanja = 50
-            vidokrug = 230
+        case SREDNJI:
+            brzinaOkretanja = 50;
+            vidokrug = 230;
             break;
-        case 3:
-            brzinaOkretanja = 40
-            vidokrug = 250
+        case TESKI:
+            brzinaOkretanja = 40;
+            vidokrug = 250;
             break;
-        case 4:
-            brzinaOkretanja = 20
-            vidokrug = 290
+        case ARTILJERIJA:
+            brzinaOkretanja = 20;
+            vidokrug = 290;
             break;
-        case 5:
-            brzinaOkretanja = 60
-            vidokrug = 300
+        case LOVAC:
+            brzinaOkretanja = 60;
+            vidokrug = 300;
             break;
         }
+    }
+    void unaprediKupolu()
+    {
+
     }
 };
 
 class Top : public Osobine
 {
 private:
-    float brzinaPucanja; /// granata/minuti
+    int brzinaPucanja; /// granata/minuti
     int prosecnaProbojnost;/// milimetara
     int prosecnaSteta;/// HP
-    float vremeNisanjenja;/// sekunde
+    int vremeNisanjenja;/// sekunde
 public:
-    Top(int lvl, tipTenka tip, int t) : Osobine(lvl, t)
+    Top() : Osobine(t)
     {
-        switch(tip)
+        brzinaPucanja = 1;
+        prosecnaProbojnost = 1;
+        prosecnaSteta = 1;
+        vremeNisanjenja = 1;
+    }
+    void unaprediTop(int stat)
+    {
+        switch(stat)
         {
-        case 1: /// LAKI
-            brzinaPucanja = 20;
-            prosecnaProbojnost = 20;
-            vremeNisanjenja = 2;
+        case 1:
+            brzinaPucanja++;
             break;
-        case 2: /// SREDNJI
-            brzinaPucanja = 15;
-            vremeNisanjenja = 3;
+        case 2:
+            prosecnaProbojnost++;
             break;
-        case 3: /// TESKI
-            brzinaPucanja = 6;
-            vremeNisanjenja = 4;
+        case 3:
+            prosecnaSteta++;
             break;
-        case 4: ///ARTILJERIJA
-            brzinaPucanja = 3;
-            vremeNisanjenja = 12;
-            break;
-        case 5: /// LOVAC
-            brzinaPucanja = 10;
-            vremeNisanjenja = 7;
+        case 4:
+            vremeNisanjenja++;
             break;
         }
     }
@@ -130,118 +295,420 @@ public:
 class TehnickeKarakteristike
 {
 private:
-    int vatrenaMoc; /// steta/granata
-    int izdrzljvost; /// HP
-    int pokretljivost; /// km/h
-    int sakrivenost; /// %
-    int opazanje; /// metara
+    int vatrenaMoc;
+    int izdrzljvost;
+    int pokretljivost;
+    int sakrivenost;
+    int opazanje;
 public:
-    TehnickeKarakteristike(int lvl)
+    TehnickeKarakteristike()
     {
-        vatrenaMoc = 10+50*lvl;
-        ///izdrzljvost = 40*lvl;
-        ///pokretljivost = ;
-        sakrivenost = 9*lvl;
-        opazanje = 150+100*lvl;
-    }
-};
-
-class OsnovneKarakteristike
-{
-private:
-    float specificnaSnaga; /// snaga
-    int maksimalnaBrzina; /// km/h
-    int brzinaUnazad; /// km/h
-    float brzinaOkretanja; /// stepeni/sekundi
-    int vidokrug; /// metara
-public:
-    OsnovneKarakteristike(int lvl)
-    {
-        specificnaSnaga = 5 * lvl;
-        maksimalnaBrzina = 10 + 9 * lvl;
-        brzinaUnazad = maksimalnaBrzina / 3;
-        brzinaOkretanja = 24 + 6 * lvl;
-        vidokrug = 160 + 40 * lvl;
-    }
-    OsnovneKarakteristike(float sS, int mB, int bU, float bO, int v)
-    {
-        specificnaSnaga = sS;
-        maksimalnaBrzina = mB;
-        brzinaUnazad = bU;
-        brzinaOkretanja = bO;
-        vidokrug = v;
+        vatrenaMoc = 1;
+        izdrzljvost = 1;
+        pokretljivost = 1;
+        sakrivenost = 1;
+        opazanje = 1;
     }
 };
 
 class Clan
 {
 private:
-    string imePrezime;
-    string tip;
-    const string tipClanaPosade[5] = {"Komandir", "Nisandzija", "Vozac", "Radio operater", "Punilac"};
+    DinString imePrezime;
+    DinString tip;
+    int vestina;
+    const DinString tipClanaPosade[5] = { "Komandir", "Nisandzija", "Vozac", "Radio operater", "Punilac" };
 public:
-    Clan(string iP, int t)
+    Clan(int t)
+    {
+        imePrezime = tipClanaPosade[t];
+        tip = tipClanaPosade[t];
+        vestina = 0;
+    }
+    Clan(DinString iP, int t)
     {
         imePrezime = iP;
         tip = tipClanaPosade[t];
+        vestina = 0;
+    }
+    void povecajVestinu()
+    {
+        if (vestina < 100)
+        {
+            vestina += rand() % 20 + 1;
+            if (vestina > 100)
+            {
+                vestina = 100;
+            }
+        }
+    }
+    void getInfo()
+    {
+        cout <<"Ime i prezime: "<< imePrezime << endl;
+        cout << "Tip: " << tip << endl;
+        cout << "Vestina: " << vestina << "%" << endl;
+    }
+    int getVestinu()
+    {
+        return vestina;
     }
 };
 
 class Posada
 {
 private:
-    Clan *clanovi;
+    List<Clan> clanovi;
     int kolicina;
-    int vestina;
 public:
-    Posada(int k, int v)
+    Posada()
+    {
+        kolicina = 5;
+        for (int i = 0; i < kolicina; i++)
+        {
+            clanovi.Add(Clan(i));
+        }
+    }
+    Posada(int k, DinString imena[])
     {
         kolicina = k;
-        vestina = v;
-        clanovi = (Clan*) malloc(sizeof(Clan)*k);
+        for (int i = 0; i < kolicina; i++)
+        {
+            clanovi.Add(Clan(imena[i], i));
+        }
     }
-    Clan &operator[](int index)
+    Clan& operator[](int index)
     {
         return clanovi[index];
     }
+    void povecajVestinu()
+    {
+        for (int i = 0; i < kolicina; i++)
+        {
+            clanovi[i].povecajVestinu();
+        }
+    }
+    void getClanovi()
+    {
+        for (int i = 0; i < kolicina; i++)
+        {
+            clanovi[i].getInfo();
+        }
+    }
+    int getVestinu()
+    {
+        int temp;
+        for (int i = 0; i < kolicina; i++)
+        {
+            temp += clanovi[i].getVestinu();
+        }
+        return temp / kolicina;
+    }
+    int getBrojPosade()
+    {
+        return kolicina;
+    }
 };
 
-class Tenk : public Osobine
+class Tenk : public Osobine, public Servisiranje
 {
-protected:
-    const string drzave[11] = {"Nemacka", "SSSR", "SAD", "Francuska", "Velika Britanija", "Kina", "Japan", "Cehoslovacka vozila", "Poljska", "Svedska", "Italija"};
-    string drzava;
-    string naziv;
-    tipTenka tip;
+private:
+    const DinString drzave[11] = { "Nemacka", "SSSR", "SAD", "Francuska", "Velika Britanija", "Kina", "Japan", "Cehoslovacka vozila", "Poljska", "Svedska", "Italija" };
+    DinString drzava;
+    DinString naziv;
+    stanjeTenka stanje;
     Top top;
     Kupola kupola;
     Motor motor;
     Radio radio;
     Vesanje vesanje;
     Posada posada;
-    TehnickeKarakteristike tehnickeKarakteristike;
-    OsnovneKarakteristike osnovneKarakteristike;
+    float sansaZaPobedu;
+    int cena;
 public:
-    Tenk(int d, string n, int lvl, tipTenka t, int tez) : Osobine(lvl, tez), top(lvl, t, tez/27.5), kupola(lvl, t, tez/2.75), motor(lvl, t, tez/22), radio(lvl, t, tez/110), vesanje(lvl, t, tez/1.6), posada(), tehnickeKarakteristike(lvl), osnovneKarakteristike()
+    Tenk() : Osobine(), Servisiranje(), top(LAKI, 1500), kupola(LAKI, 500), motor(LAKI, 500), radio(LAKI, 500), vesanje(LAKI, 2000), posada()
+    {
+        drzava = drzave[0];
+        naziv = "Leihttraktor";
+        tip = LAKI;
+        stanje = SPREMANZABORBU;
+        cena = 50000;
+        sansaZaPobedu = 0;
+        sansaZaPobedu += posada.getVestinu()/5;
+    }
+    Tenk(int d, DinString n, int t, int k, DinString imena[]) : Osobine(t), top(tezina / 3.3), kupola(tezina / 10), motor(tezina / 10), radio(tezina / 10), vesanje(tezina / 2.5), posada(k, imena)
     {
         drzava = drzave[d];
         naziv = n;
-        tip = t;
+        stanje = SPREMANZABORBU;
+        cena = rand() % 100000 + 50000;
+        sansaZaPobedu = 0;
+        sansaZaPobedu += posada.getVestinu() / posada.getBrojPosade();
+    }
+    void unaprediTop(int stat)
+    {
+        top.
+    }
+    void unaprediVesanje()
+    {
+        vesanje.unaprediVesanje();
+    }
+    void unaprediKupolu()
+    {
+        kupola.unaprediKupolu();
+    }
+    void unaprediRadio()
+    {
+        radio.unaprediRadio();
+    }
+    void unaprediMotor()
+    {
+        motor.unaprediMotor();
+    }
+    void promeniStanje()
+    {
+        int indexMunicije = rand() % 2;
+        int indexPotrosneRobe = rand() % 6;
+        stanje = POTREBNAPOPRAVKA;
+        posada.povecajVestinu();
+        potrosiMuniciju(getMunicija(indexMunicije) / 3, indexMunicije);
+        potrosiPotrosnuRobu(getPotrosnaRoba(indexPotrosneRobe)-1, indexPotrosneRobe);
+        sansaZaPobedu = 0;
+        sansaZaPobedu += posada.getVestinu() / posada.getBrojPosade();
+    }
+    int getCena()
+    {
+        return cena;
+    }
+    void popraviTenk()
+    {
+        stanje = SPREMANZABORBU;
+    }
+    stanjeTenka getStanje()
+    {
+        return stanje;
+    }
+    void municija(int kolicina, int index)
+    {
+        kupiMuniciju(index, kolicina);
+    }
+    void potrosnaRoba(int kolicina,int index)
+    {
+        kupiPotrosnuRobu(index, kolicina);
+    }
+    int getSansaZaPobedu()
+    {
+        sansaZaPobedu += getBrojPotrosneRobe()*5.7f;
+        sansaZaPobedu += getBrojMunicije() * 0.2f;
+        return sansaZaPobedu;
     }
 };
 
-class PremiumTenk : public Tenk
+class Laki : public Tenk
+{
+public:
+};
+
+class Srednji : public Tenk
 {
 
 };
 
-class ObicanTenk : public Tenk
+class Teski : public Tenk
 {
 
+};
+
+class Lovac : public Tenk
+{
+
+};
+
+class Artiljerija : public Tenk
+{
+
+};
+
+class Account
+{
+private:
+    DinString username;
+    DinString password;
+    int krediti;
+    int zlato;
+    int brojSlobodnihMesta;
+    int brojTenkova;
+    List<Tenk> garaza;
+    Servisiranje servisiranje;
+public:
+    Account(DinString Username, DinString Password)
+    {
+        username = Username;
+        password = Password;
+        krediti = 1000000;
+        zlato = 600;
+        brojSlobodnihMesta = 2;
+        brojTenkova = 0;
+    }
+    bool kupiTenk(Tenk* tenkZaKupovinu)
+    {
+        if (brojSlobodnihMesta != 0 && (krediti - tenkZaKupovinu->getCena()) >= 0)
+        {
+            brojSlobodnihMesta--;
+            garaza.Add(tenkZaKupovinu);
+            krediti -= garaza[brojTenkova].getCena();
+            brojTenkova++;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    bool prodajTenk(int indexTenka)
+    {
+        if (garaza[indexTenka].getStanje() == SPREMANZABORBU)
+        {
+            brojSlobodnihMesta++;
+            brojTenkova--;
+            krediti += garaza[indexTenka].getCena() / 2;
+            garaza.RemoveAt(indexTenka);
+            return true;
+        }
+        else
+        {
+            cout << "Tenk mora biti spreman za borbu";
+            return false;
+        }
+    }
+    bool kupiSlot()
+    {
+        if (zlato >= 300)
+        {
+            brojSlobodnihMesta++;
+            zlato -= 300;
+            return true;
+        }
+        else
+            return false;
+    }
+    void dodajKredit()
+    {
+        krediti += 50000;
+    }
+    void dodajZlato()
+    {
+        zlato += 500;
+    }
+    void uBorbu(int indexTenka)
+    {
+        int sansa = rand() % 100 + 1;
+        if (garaza[indexTenka].getSansaZaPobedu() > sansa)
+        {
+            cout << "Vicotry";
+            krediti += rand() % 100000 + 40000;
+        }
+        else
+        {
+            cout << "Lose";
+            krediti += rand() % 50000 + 20000;
+        }
+        garaza[indexTenka].promeniStanje();
+    }
+    bool popraviTenk(int indexTenka)
+    {
+        int temp=rand()%10000+1;
+        if (garaza[indexTenka].getStanje() == POTREBNAPOPRAVKA && krediti-temp>=0)
+        {
+            krediti -= temp;
+            garaza[indexTenka].popraviTenk();
+            return true;
+        }
+        else
+        {
+            if (krediti - temp < 0)
+            {
+                cout << "Nedostatak kredita";
+            }
+            else
+            {
+                cout << "Tenk je vec popravljen";
+            }
+        }
+    }
+    bool kupiPotrosnuRobu(int kolicina, int index)
+    {
+        if (krediti - servisiranje.getCenaPotrosneRobe(kolicina, index) >= 0 && servisiranje.kupiPotrosnuRobu(index, kolicina))
+        {
+            krediti -= servisiranje.getCenaPotrosneRobe(kolicina, index);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    bool kupiMuniciju(int kolicina, int index)
+    {
+        if (krediti - servisiranje.getCenaPotrosneRobe(kolicina, index) >= 0 && servisiranje.kupiMuniciju(index, kolicina))
+        {
+            krediti -= servisiranje.getCenaPotrosneRobe(kolicina, index);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    bool napuniTenk(int indexTenka, int kolicina, int indexMunicije)
+    {
+        if (servisiranje.getMunicija(indexMunicije) >= kolicina)
+        {
+            garaza[indexTenka].municija(kolicina, indexMunicije);
+            servisiranje.potrosiMuniciju(kolicina, indexMunicije);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    bool servisirajTenk(int indexTenka, int kolicina, int indexPotrosneRobe)
+    {
+        if (servisiranje.getPotrosnaRoba(indexPotrosneRobe) >= kolicina)
+        {
+            garaza[indexTenka].potrosnaRoba(kolicina, indexPotrosneRobe);
+            servisiranje.potrosiPotrosnuRobu(kolicina, indexPotrosneRobe);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+};
+
+class OsnovneKarakteristike
+{
+private:
+    float specificnaSnaga;
+    int maksimalnaBrzina;
+    int brzinaUnazad;
+    float brzinaOkretanja;
+    int vidokrug;
+public:
+    OsnovneKarakteristike()
+    {
+        specificnaSnaga = 1;
+        maksimalnaBrzina = 1;
+        brzinaUnazad = 1;
+        brzinaOkretanja = 1;
+        vidokrug = 1;
+    }
 };
 
 int main()
 {
-
+    srand(time(0));
     return 0;
 }
