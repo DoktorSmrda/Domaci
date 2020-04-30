@@ -7,7 +7,7 @@ class Kamera
 protected:
     int megaPikseli;
     int freeSpace;
-    static int photoCounter;
+    int photoCounter;
 public:
     Kamera()
     {
@@ -27,11 +27,11 @@ public:
         freeSpace = kopija.freeSpace;
         photoCounter = kopija.photoCounter;
     }
-    int get_photoCounter()
+    int GetPhotoCounter()
     {
         return photoCounter;
     }
-    bool slikaj()
+    bool Slikaj()
     {
         if((freeSpace-megaPikseli)>=0)
         {
@@ -44,11 +44,17 @@ public:
             return false;
         }
     }
+    void GetInfo()
+    {
+        cout<<"Mega pikseli: "<<megaPikseli<<endl;
+        cout<<"Free space: "<<freeSpace<<endl;
+        cout<<"Photo counter: "<<photoCounter<<endl;
+    }
 };
 class VideoKamera : public Kamera
 {
 private:
-    static int videoCounter;
+    int videoCounter;
 public:
     VideoKamera():Kamera()
     {
@@ -58,11 +64,11 @@ public:
     {
         videoCounter = vC;
     }
-    int get_videoCounter()
+    int GetVideoCounter()
     {
         return videoCounter;
     }
-    bool snimaj(int sekunde)
+    bool Snimaj(int sekunde)
     {
         if(freeSpace-(megaPikseli*sekunde)>=0)
         {
@@ -74,6 +80,11 @@ public:
         {
             return false;
         }
+    }
+    void GetInfo()
+    {
+        Kamera::GetInfo();
+        cout<<"Video counter: "<<videoCounter<<endl;
     }
 };
 class Telefon
@@ -89,7 +100,7 @@ public:
     {
         broj = b;
     }
-    bool pozovi(DinString b)
+    bool Pozovi(DinString b)
     {
         if(b!=broj)
         {
@@ -100,6 +111,10 @@ public:
             return false;
         }
     }
+    void GetInfo()
+    {
+        cout<<"Broj: "<<broj<<endl;
+    }
 };
 class TelefonGen2 : public Telefon
 {
@@ -108,9 +123,14 @@ protected:
 public:
     TelefonGen2():Telefon(),k(){}
     TelefonGen2(DinString b, int mP, int fS, int pC) : Telefon(b), k(mP, fS, pC){}
-    bool slikajSliku()
+    bool SlikajSliku()
     {
-        return k.slikaj();
+        return k.Slikaj();
+    }
+    void GetInfo()
+    {
+        Telefon::GetInfo();
+        k.GetInfo();
     }
 };
 class TelefonGen3 : public TelefonGen2
@@ -120,18 +140,32 @@ private:
 public:
     TelefonGen3():TelefonGen2(),vk(){}
     TelefonGen3(DinString b, int mP, int fS, int pC, int vC):TelefonGen2(b, mP, fS, pC),vk(mP,fS,pC,vC){}
-    bool snimiVideo(int sekunde)
+    bool SnimiVideo(int sekunde)
     {
-        return vk.snimaj(sekunde);
+        return vk.Snimaj(sekunde);
+    }
+    void GetInfo()
+    {
+        Telefon::GetInfo();
+        vk.GetInfo();
     }
 };
 int main()
 {
     Kamera k;
+    k.GetInfo();
+    cout<<endl;
     VideoKamera VK;
+    VK.GetInfo();
+    cout<<endl;
     Telefon t;
+    t.GetInfo();
+    cout<<endl;
     TelefonGen2 tg2;
+    tg2.GetInfo();
+    cout<<endl;
     TelefonGen3 tg3;
-    
+    tg3.SnimiVideo(30);
+    tg3.GetInfo();
     return 0;
 }

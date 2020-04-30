@@ -1,4 +1,11 @@
 # depslib dependency file v1.0
-1587757919 source:d:\sve za skolu\github\domaci\kamera\main.cpp
+1588247369 source:d:\sve za skolu\github\domaci\kamera\main.cpp
+	<iostream>
+	"dinstring.hpp"
+
+1587758018 source:d:\sve za skolu\github\domaci\kamera\dinstring.cpp
+	"dinstring.hpp"
+
+1588242117 d:\sve za skolu\github\domaci\kamera\dinstring.hpp
 	<iostream>
 
