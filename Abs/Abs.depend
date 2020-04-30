@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1588248987 source:d:\sve za skolu\github\domaci\abs\dinstring.cpp
+	"dinstring.hpp"
+
+1588248980 d:\sve za skolu\github\domaci\abs\dinstring.hpp
+	<iostream>
+
+1588255677 source:d:\sve za skolu\github\domaci\abs\main.cpp
+	<iostream>
+	"dinstring.hpp"
+
