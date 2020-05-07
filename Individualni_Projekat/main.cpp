@@ -244,7 +244,7 @@ int main()
                 account.izlistajNazive();
                 cout<<"|>>>";
                 cin>>izbor;
-                account.ispisServisiranjaTenkaMunicija(izbor-1);
+                account.GetGaraza()[izbor-1].GetInfoMunicija();
                 cout<<"|>>>";
                 cin>>izbor2;
                 cout<<"|Kolicina: ";
@@ -263,7 +263,7 @@ int main()
                 account.izlistajNazive();
                 cout<<"|>>>";
                 cin>>izbor;
-                account.ispisServisiranjaTenkaPotrosnaRoba(izbor-1);
+                account.GetGaraza()[izbor-1].GetInfoPotrosnaRoba();
                 cout<<"|>>>";
                 cin>>izbor2;
                 cout<<"|Kolicina: ";
@@ -296,8 +296,8 @@ int main()
                 account.izlistajNazive();
                 cout<<"|>>>";
                 cin>>izbor;
-                account.ispisServisiranjaTenkaPotrosnaRoba(izbor-1);
-                account.ispisServisiranjaTenkaMunicija(izbor-1);
+                account.GetGaraza()[izbor-1].GetInfoPotrosnaRoba();
+                account.GetGaraza()[izbor-1].GetInfoMunicija();
             }
             break;
         case 14:

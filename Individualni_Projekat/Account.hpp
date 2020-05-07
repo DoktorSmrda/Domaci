@@ -248,17 +248,9 @@ public:
     {
         servisiranje.GetInfoMunicija();
     }
-    List<Tenk> GetGaraza()
+    List<Tenk>& GetGaraza()
     {
         return garaza;
-    }
-    void ispisServisiranjaTenkaPotrosnaRoba(int index)
-    {
-        garaza[index].GetInfoPotrosnaRoba();
-    }
-    void ispisServisiranjaTenkaMunicija(int index)
-    {
-        garaza[index].GetInfoMunicija();
     }
     Servisiranje GetServisiranje()
     {
