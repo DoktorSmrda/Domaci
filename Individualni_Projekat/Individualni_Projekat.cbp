@@ -32,6 +32,24 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Account.hpp" />
+		<Unit filename="Artiljerija.hpp" />
+		<Unit filename="Clan.hpp" />
+		<Unit filename="DeoTenka.hpp" />
+		<Unit filename="Kupola.hpp" />
+		<Unit filename="Laki.hpp" />
+		<Unit filename="Lovac.hpp" />
+		<Unit filename="Motor.hpp" />
+		<Unit filename="OsnovneKarakteristike.hpp" />
+		<Unit filename="Posada.hpp" />
+		<Unit filename="Radio.hpp" />
+		<Unit filename="Servisiranje.hpp" />
+		<Unit filename="Srednji.hpp" />
+		<Unit filename="TehnickeKarakteristike.hpp" />
+		<Unit filename="Tenk.hpp" />
+		<Unit filename="Teski.hpp" />
+		<Unit filename="Top.hpp" />
+		<Unit filename="Vesanje.hpp" />
 		<Unit filename="dinstring.cpp" />
 		<Unit filename="dinstring.hpp" />
 		<Unit filename="list.hpp" />

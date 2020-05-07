@@ -1,0 +1,81 @@
+# depslib dependency file v1.0
+1588002292 source:d:\sve za skolu\github\domaci\individualni_projekat\dinstring.cpp
+	"dinstring.hpp"
+
+1588002299 d:\sve za skolu\github\domaci\individualni_projekat\dinstring.hpp
+	<iostream>
+
+1588856550 source:d:\sve za skolu\github\domaci\individualni_projekat\main.cpp
+	<iostream>
+	"dinstring.hpp"
+	"list.hpp"
+	<time.h>
+	"Account.hpp"
+	"Teski.hpp"
+	"Laki.hpp"
+	"Srednji.hpp"
+	"Lovac.hpp"
+	"Artiljerija.hpp"
+
+1588672137 d:\sve za skolu\github\domaci\individualni_projekat\list.hpp
+
+1588847163 d:\sve za skolu\github\domaci\individualni_projekat\account.hpp
+	"Tenk.hpp"
+
+1588855516 d:\sve za skolu\github\domaci\individualni_projekat\tenk.hpp
+	"Servisiranje.hpp"
+	"Radio.hpp"
+	"Posada.hpp"
+	"Vesanje.hpp"
+	"Kupola.hpp"
+	"Top.hpp"
+	"dinstring.hpp"
+	"Servisiranje.hpp"
+	"Motor.hpp"
+	<iostream>
+
+1588847163 d:\sve za skolu\github\domaci\individualni_projekat\servisiranje.hpp
+
+1588756419 d:\sve za skolu\github\domaci\individualni_projekat\radio.hpp
+	"DeoTenka.hpp"
+
+1588599355 d:\sve za skolu\github\domaci\individualni_projekat\deotenka.hpp
+	"Osobine.hpp"
+
+1588599341 d:\sve za skolu\github\domaci\individualni_projekat\osobine.hpp
+
+1588707537 d:\sve za skolu\github\domaci\individualni_projekat\posada.hpp
+	"Clan.hpp"
+	"list.hpp"
+
+1588759094 d:\sve za skolu\github\domaci\individualni_projekat\clan.hpp
+	"dinstring.hpp"
+
+1588756419 d:\sve za skolu\github\domaci\individualni_projekat\vesanje.hpp
+	"DeoTenka.hpp"
+
+1588756419 d:\sve za skolu\github\domaci\individualni_projekat\kupola.hpp
+	"DeoTenka.hpp"
+
+1588756419 d:\sve za skolu\github\domaci\individualni_projekat\top.hpp
+	"DeoTenka.hpp"
+
+1588756419 d:\sve za skolu\github\domaci\individualni_projekat\motor.hpp
+	"DeoTenka.hpp"
+
+1588692528 d:\sve za skolu\github\domaci\individualni_projekat\teski.hpp
+	"TehnickeKarakteristike.hpp"
+	"OsnovneKarakteristike.hpp"
+
+1588763368 d:\sve za skolu\github\domaci\individualni_projekat\tehnickekarakteristike.hpp
+
+1588763368 d:\sve za skolu\github\domaci\individualni_projekat\osnovnekarakteristike.hpp
+
+1588757136 d:\sve za skolu\github\domaci\individualni_projekat\laki.hpp
+
+1588692528 d:\sve za skolu\github\domaci\individualni_projekat\srednji.hpp
+
+1588707864 d:\sve za skolu\github\domaci\individualni_projekat\lovac.hpp
+
+1588601431 d:\sve za skolu\github\domaci\individualni_projekat\artiljerija.hpp
+
