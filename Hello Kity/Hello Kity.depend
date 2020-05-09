@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1589036466 source:d:\sve za skolu\github\domaci\hello kity\dinstring.cpp
+	"DinString.hpp"
+
+1589036431 d:\sve za skolu\github\domaci\hello kity\dinstring.hpp
+	<iostream>
+
+1589037837 source:d:\sve za skolu\github\domaci\hello kity\main.cpp
+	<iostream>
+	"DinString.hpp"
+	"List.hpp"
+
+1589036621 d:\sve za skolu\github\domaci\hello kity\list.hpp
+	<stdlib.h>
+	<iostream>
+

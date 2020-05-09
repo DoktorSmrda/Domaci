@@ -15,7 +15,7 @@ using namespace std;
 
 enum stanjeTenka { SPREMANZABORBU = 1, POTREBNAPOPRAVKA };
 
-class Tenk : public Servisiranje
+class Tenk
 {
 private:
     const DinString drzave[11] = { "Nemacka", "SSSR", "SAD", "Francuska", "Velika Britanija", "Kina", "Japan", "Cehoslovacka vozila", "Poljska", "Svedska", "Italija" };
@@ -33,8 +33,9 @@ private:
     DinString Tip;
     float sansaZaPobedu;
     int cena;
+    Servisiranje servisiranje;
 public:
-    Tenk() : Servisiranje(), top(LAKI), kupola(LAKI), motor(LAKI), radio(LAKI), vesanje(LAKI), posada()
+    Tenk() : servisiranje(), top(LAKI), kupola(LAKI), motor(LAKI), radio(LAKI), vesanje(LAKI), posada()
     {
         drzava = drzave[0];
         naziv = "Leihttraktor";
@@ -45,7 +46,7 @@ public:
         sansaZaPobedu = 0;
         sansaZaPobedu += posada.getVestinu()/2;
     }
-    Tenk(tipTenka TipTenka, int d, DinString n, int k, DinString imena[]) : Servisiranje(),top(TipTenka), kupola(TipTenka), motor(TipTenka), radio(TipTenka), vesanje(TipTenka), posada(k, imena)
+    Tenk(tipTenka TipTenka, int d, DinString n, int k, DinString imena[]) : servisiranje(),top(TipTenka), kupola(TipTenka), motor(TipTenka), radio(TipTenka), vesanje(TipTenka), posada(k, imena)
     {
         drzava = drzave[d];
         naziv = n;
@@ -56,7 +57,7 @@ public:
         tip = TipTenka;
         Tip = Tipovi[(int)tip-1];
     }
-    Tenk(tipTenka TipTenka, int d, DinString n, int k) : Servisiranje(),top(TipTenka), kupola(TipTenka), motor(TipTenka), radio(TipTenka), vesanje(TipTenka), posada(k)
+    Tenk(tipTenka TipTenka, int d, DinString n, int k) : servisiranje(),top(TipTenka), kupola(TipTenka), motor(TipTenka), radio(TipTenka), vesanje(TipTenka), posada(k)
     {
         drzava = drzave[d];
         naziv = n;
@@ -67,7 +68,7 @@ public:
         tip = TipTenka;
         Tip = Tipovi[(int)tip-1];
     }
-    Tenk(Tenk& tenk) : Servisiranje(), top(tenk.tip), kupola(tenk.tip), motor(tenk.tip), radio(tenk.tip), vesanje(tenk.tip), posada()
+    Tenk(Tenk& tenk) : servisiranje(), top(tenk.tip), kupola(tenk.tip), motor(tenk.tip), radio(tenk.tip), vesanje(tenk.tip), posada()
     {
         drzava = tenk.drzava;
         naziv = tenk.naziv;
